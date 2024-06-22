@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel's Portfolio</title>
+    <!-- swiper, font awesome and style -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/projects.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="navbar">
+        <nav>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="projects.html" class="active">Main Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fa-solid fa-bars" id="open"></i>
+            <i class="fa-solid fa-times" id="cancel"></i>
+        </label>
+
+        <div class="sidebar">
+            <ul class="links-side">
+                <li class="li-side"><a href="index.html">Home</a></li>
+                <li class="li-side"><a href="aboutme.html">About Me</a></li>
+                <li class="li-side"><a href="projects.html" class="active">Main Projects</a></li>
+                <li class="li-side"><a href="resume.html">Resume</a></li>
+                <li class="li-side"><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /navbar -->
+    <!-- section -->
+    <section>
+        <img class="hero" src="./images/cod.png" alt="" />
+        <a class="other" target="_blank" href="https://github.com/gabrielrbarbosa23?tab=repositories"><i
+                class="fa-regular fa-hand-point-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other projects</a>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="background-overlay"></div>
+                    <div class="card">
+                        <a class="title" href="https://ourbooks-personalwebsite.vercel.app/principal"
+                            target="_blank">Ourbooks</a>
+                        <p class="text">Personal Website to read built with react</p>
+                    </div>
+                    <i class="ri-eye-off-line login__eye swiper-button hideOverlayButton" id="login-eye">Take a
+                        look</i>
+                    <img src="./images/ourbooks.PNG" alt="" />
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="background-overlay"></div>
+                    <div class="card">
+                        <a class="title" href="https://convert-things.vercel.app/" target="_blank">ConverThings</a>
+                        <p class="text">Website for convert things</p>
+                    </div>
+                    <i class="ri-eye-off-line login__eye swiper-button hideOverlayButton" id="login-eye">Take a
+                        look</i>
+                    <img src="./images/converthings.PNG" alt="" />
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="background-overlay"></div>
+                    <div class="card">
+                        <a class="title" href="https://brabusburguer.vercel.app/" target="_blank">BrabusBurguer</a>
+                        <p class="text">Personal Website to read built with react</p>
+                    </div>
+                    <i class="ri-eye-off-line login__eye swiper-button hideOverlayButton" id="login-eye">Take a
+                        look</i>
+                    <img src="./images/brabusburguer.PNG" alt="" />
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="background-overlay"></div>
+                    <div class="card">
+                        <a class="title" href="https://github.com/gabrielrbarbosa23/formLogin"
+                            target="_blank">formLogin</a>
+                        <p class="text">Personal Website to read built with react</p>
+                    </div>
+                    <i class="ri-eye-off-line login__eye swiper-button hideOverlayButton" id="login-eye">Take a
+                        look</i>
+                    <img src="./images/formLogin.PNG" alt="" />
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="background-overlay"></div>
+                    <div class="card">
+                        <a class="title" href="https://github.com/gabrielrbarbosa23/projetoForm"
+                            target="_blank">projetoForm</a>
+                        <p class="text">Personal Website to read built with react</p>
+                    </div>
+                    <i class="ri-eye-off-line login__eye swiper-button hideOverlayButton" id="login-eye">Take a
+                        look</i>
+                    <img src="./images/projetoLogin.PNG" alt="" />
+                </div>
+
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+    <!-- /section -->
+    <!-- partial -->
+    <script src='https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js'></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var swiper = new Swiper(".swiper", {
+                grabCursor: true,
+                speed: 500,
+                effect: "slide",
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                mousewheel: {
+                    invert: false,
+                    sensitivity: 1,
+                },
+            });
+
+            swiper.enable();
+
+            var hideOverlayButtons = document.querySelectorAll(".hideOverlayButton");
+
+            hideOverlayButtons.forEach(function (button, index) {
+                var backgroundOverlay = document.querySelectorAll(".background-overlay")[index];
+                var card = document.querySelectorAll(".card")[index];
+                var isOverlayVisible = true;
+
+                button.addEventListener("click", function () {
+                    if (isOverlayVisible) {
+                        backgroundOverlay.classList.add("hide");
+                        card.style.display = "none";
+                        button.classList.add("ri-eye-line"); 
+                        button.classList.remove("ri-eye-off-line");
+                    } else {
+                        backgroundOverlay.classList.remove("hide");
+                        card.style.display = "block";
+                        button.classList.remove("ri-eye-line"); 
+                        button.classList.add("ri-eye-off-line");
+                    }
+
+                    isOverlayVisible = !isOverlayVisible;
+                });
+            });
+
+            let cards = document.querySelectorAll('.swiper-slide');
+
+            cards.forEach(card => {
+                card.addEventListener('mousemove', handleMouseMove);
+            });
+
+            function handleMouseMove(event) {
+                const card = event.currentTarget;
+                const boundingRect = card.getBoundingClientRect();
+                const x = event.clientX - boundingRect.left - (boundingRect.width / 4);
+                const y = event.clientY - boundingRect.top - (boundingRect.height / 10);
+
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            }
+        });
+
+    </script>
+</body>
+</html>

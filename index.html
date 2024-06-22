@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel's Portfolio</title>
+    <!-- font awesome and style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 3d objects js -->
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.153.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.153.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+    <!-- navbar -->
+    <nav>
+        <ul class="links">
+            <li><a href = "index.html" class = "active">Home</a></li>
+            <li><a href = "aboutme.html">About Me</a></li>
+            <li><a href = "projects.html">Main Projects</a></li>
+            <li><a href = "resume.html">Resume</a></li>
+            <li><a href = "contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa-solid fa-bars" id="open"></i>
+        <i class="fa-solid fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <ul class="links-side">
+            <li class="li-side"><a href = "index.html" class = "active">Home</a></li>
+            <li class="li-side"><a href = "aboutme.html">About Me</a></li>
+            <li class="li-side"><a href = "projects.html">Main Projects</a></li>
+            <li class="li-side"><a href = "resume.html">Resume</a></li>
+            <li class="li-side"><a href = "contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <!-- /navbar -->
+
+    <!-- loading page -->
+    <header id="header">
+        <div id="progress-container">
+            <div id="progress" class="progress">LOADING...</div>
+            <div class="overlay"></div>
+        </div>
+    </header>
+    <!-- /loading page -->
+
+    <!-- 3D objects and icons -->
+    <div id="object-wrapper">
+        <canvas id="canvas"></canvas>
+        <div class="icons">
+            <p class="key-tech">Key Technologies</p>
+            <ul>
+                <li><img class="img-icon" src="logos/react.svg" alt=""></li>
+                <li><img class="img-icon" src="logos/PHP.svg" alt=""></li>
+                <li><img class="img-icon" src="logos/MySQL.svg" alt=""></li>
+                <li><img class="img-icon" src="logos/JavaScript.svg" alt=""></li>
+                <li><img class="img-icon" src="logos/Three.js.svg" alt=""></li>
+                <li><img class="img-icon" src="logos/wordpress.svg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /3D objects and icons -->
+
+    <!-- prompt -->
+    <div class="window">
+        <div class="bar-window">
+            <div class="btn"></div>
+        </div>
+        <div class="bodyWindow">
+            <pre><div class="comment"># Gabriel's Portfolio:</div><div class="prompt">$ <span class="command">echo Hi...</span></div><div class="prompt">$ <span class="typing-text-1"></span><span class="pulse">_</span></div><div class="prompt">$ <span class="typing-text-2"></span><span class="pulse">_</span></div></div>
+            </pre>
+        </div>
+    </div>
+    <!-- /prompt -->
+
+    <!-- footer -->
+    <footer>
+          <hr>
+        <div>
+          <div class="footer">
+            <div class="copyright">
+                <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by Gabriel R Barbosa</p>
+            </div>
+  
+            <div class="social-icons">
+              <ul>
+                <li><a href="https://www.instagram.com/gabrielrbarbosa/" target="_blank"><i class="fa-brands fa-instagram"></i></i></a></li>
+                <li><a href="https://www.linkedin.com/in/gabriel-rabello-barbosa-204aa7142/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/gabrielrbarbosa23" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+
+    <!-- three.js script -->
+    <script type="module" src="./js/main.js"></script>
+
+    <!-- typewriting script -->
+    <script>
+        const texts = [
+                "Hi I'm a Fullstack software engineer at Braziline Indústria e Comércio LTDA"
+            ];
+
+            // Function to show typewriting
+            function typeText(phrase, targetElement, delay) {
+                let index = 0;
+                function typeWriter() {
+                    if (index < phrase.length) {
+                        targetElement.textContent += phrase.charAt(index);
+                        index++;
+                        setTimeout(typeWriter, 20); 
+                    }
+                }
+                typeWriter();
+            }
+
+            // Function to show second typewriting
+            function typeText1(phrase, targetElement, delay) {
+                let index = 0;
+                function typeWriter1() {
+                    if (index < phrase.length) {
+                        targetElement.textContent += phrase.charAt(index);
+                        index++;
+                        setTimeout(typeWriter1, 20);
+                    }
+                }
+                setTimeout(() => {
+                    typeWriter1();
+                }, delay);
+            }
+
+            setTimeout(() => {
+                const pulse = document.querySelector('.pulse');
+                typeText(texts[0], document.querySelector('.typing-text-1'), 3000);
+                pulse.style.display = "inline";
+
+                // Start typing-text1 with delay
+                const pulse1 = document.querySelector('.pulse1');
+                typeText1("Specialized knowledge in React | PHP | MySQL | JavaScript | Three.js | Wordpress ", document.querySelector('.typing-text-2'), 3000);
+                pulse1.style.display = "inline";
+            }, 3000);
+    </script>
+
+    <!-- Drag div window script -->
+    <script>
+        let initialX, initialY, windowX, windowY;
+        let isDragging = false;
+    
+        const bar = document.querySelector('.bar-window');
+        const windowElement = document.querySelector('.window');
+    
+        function startDragging(e) {
+            isDragging = true;
+            initialX = e.clientX;
+            initialY = e.clientY;
+            windowX = windowElement.offsetLeft;
+            windowY = windowElement.offsetTop;
+        }
+    
+        function stopDragging() {
+            isDragging = false;
+        }
+    
+        function dragWindow(e) {
+            if (isDragging) {
+                const deltaX = e.clientX - initialX;
+                const deltaY = e.clientY - initialY;
+                windowElement.style.left = windowX + deltaX + 'px';
+                windowElement.style.top = windowY + deltaY + 'px';
+            }
+        }
+    
+        bar.addEventListener('mousedown', startDragging);
+        document.addEventListener('mouseup', stopDragging);
+        document.addEventListener('mousemove', dragWindow);
+    </script>
+</body>
+</html>

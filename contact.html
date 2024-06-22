@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel's Portfolio</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+
+    <nav>
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="projects.html">Main Projects</a></li>
+            <li><a href = "resume.html">Resume</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa-solid fa-bars" id="open"></i>
+        <i class="fa-solid fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <ul class="links-side">
+            <li class="li-side"><a href="index.html">Home</a></li>
+            <li class="li-side"><a href="aboutme.html">About Me</a></li>
+            <li class="li-side"><a href="projects.html">Main Projects</a></li>
+            <li class="li-side"><a href = "resume.html">Resume</a></li>
+            <li class="li-side"><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="login">
+        <form action="https://formsubmit.co/bielrbarbosa@gmail.com" method="POST" class="login__form">
+            <h1 class="login__title">Get in touch</h1>
+
+            <div class="login__content">
+                <div class="login__box">
+                    <div class="login__box-input">
+                        <input type="text" name="nome" required class="login__input" placeholder=" " autocomplete="off">
+                        <label for="" class="login__label__nome">Name</label>
+                    </div>
+                </div>
+
+                <div class="login__box">
+                    <div class="login__box-input login__icon">
+                        <input type="email" name="email" required class="login__input" placeholder=" "
+                            autocomplete="off">
+                        <label for="" class="login__label__email">E-mail</label>
+                    </div>
+                </div>
+
+                <div class="login__box">
+                    <div class="login__box-input login__icon">
+                        <input type="text" name="text" required class="login__input" placeholder=" " autocomplete="off">
+                        <label for="" class="login__label__text">Message</label>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" name="_subject" value="Trabalho dev">
+            <input type="text" name="_honey" style="display: none;">
+            <input type="hidden" name="_captcha" value="false">
+            <input class="login__button" type="submit" name="submit" value="Send">
+        </form>
+    </div>
+
+    <footer>
+        <hr>
+        <div>
+            <div class="footer">
+                <div class="copyright">
+                    <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by Gabriel R Barbosa</p>
+                </div>
+
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="https://www.instagram.com/gabrielrbarbosa/" target="_blank"><i
+                                    class="fa-brands fa-instagram"></i></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/gabriel-rabello-barbosa-204aa7142/" target="_blank"><i
+                                    class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a href="https://github.com/gabrielrbarbosa23" target="_blank"><i
+                                    class="fa-brands fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>

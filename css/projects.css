@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --background: #0F0F0F;
+    --greenOne: #61CE70;
+    --greenTwo: #01C38D;
+    --greenThree: #696E79;
+    --greenFour: #132D46;
+    --black: #000000;
+    --white: #FFFFFF;
+}
+
+/*--------------------------------------- globals -------------------------------------------------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    overflow: hidden;
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+/*--------------------------------------- /globals -------------------------------------------------*/
+
+/*--------------------------------------- navbar -------------------------------------------------*/
+.navbar {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+}
+
+nav {
+    position: relative;
+    z-index: 2;
+    height: 64px;
+    background-color: #191919;
+    box-shadow: none;
+    box-shadow: 0 0.15rem 1rem rgba(50, 193, 70, 0.2);
+}
+
+.links {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 100%;
+}
+
+.links li a {
+    text-decoration: none;
+    opacity: 0.1;
+    color: var(--greenTwo);
+}
+
+.links li a.active {
+    opacity: 1;
+}
+
+.bar-icon {
+    position: absolute;
+    font-size: x-large;
+    color: var(--greenTwo);
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar {
+    position: fixed;
+    z-index: 2;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: #191919;
+    transition: all .5s ease;
+}
+
+.sidebar ul {
+    margin-top: 50px;
+    margin-left: 30px;
+    list-style: none;
+}
+
+.sidebar ul a {
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: var(--greenTwo);
+    opacity: 0.5;
+}
+
+.sidebar ul a.active {
+    opacity: 1;
+}
+
+@media only screen and (min-width: 751px) {
+    .sidebar {
+        display: none;
+    }
+
+    #check {
+        display: none;
+    }
+
+    label #open,
+    label #cancel {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 751px) {
+    .links {
+        display: none;
+    }
+}
+
+#check {
+    display: none;
+}
+
+label #open,
+label #cancel {
+    position: absolute;
+    cursor: pointer;
+}
+
+label #open {
+    z-index: 9999;
+    right: 40px;
+    top: 17px;
+    font-size: 35px;
+    color: var(--greenTwo);
+    transition: all .5s ease;
+}
+
+label #cancel {
+    z-index: 1111;
+    right: -195px;
+    top: 17px;
+    font-size: 35px;
+    color: var(--greenTwo);
+    transition: all .5s ease;
+}
+
+#check:checked~.sidebar {
+    right: 0;
+}
+
+#check:checked~label #open {
+    right: 40px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked~label #cancel {
+    right: 195px;
+}
+/*--------------------------------------- /navbar -------------------------------------------------*/
+
+/*--------------------------------------- content section -------------------------------------------------*/
+.hero {
+    position: absolute;
+    bottom: -50px;
+    z-index: 5;
+    max-width: 550px;
+    filter: contrast(90%);
+    pointer-events: none;
+}
+
+.other {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    text-decoration: none;
+    color: #01C38D;
+    transition: all .5s ease;
+}
+
+.other:hover {
+    font-size: 1.1rem;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 64px;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+}
+
+.background-overlay.hide {
+    display: none;
+}
+
+.card {
+    position: absolute;
+    top: 5%;
+    width: 700px;
+    height: 250px;
+    background-color: rgba(25, 25, 25, 0.1);
+    border-radius: 20px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    background: radial-gradient(var(--greenOne), transparent, transparent);
+    width: 500px;
+    height: 500px;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.3s, top 0s, left 0s;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 18px;
+    background: rgba(25, 25, 25, 0.8);
+}
+
+.title {
+    position: absolute;
+    text-decoration: none;
+    letter-spacing: 0.3rem;
+    font-size: 5rem;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    color: #01C38D;
+    transition: all .2s ease-in-out;
+}
+
+.title:hover {
+    font-size: 5.5rem;
+}
+
+.text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    color: #01C38D;
+}
+
+.swiper-button {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    cursor: pointer;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.login__eye {
+    font-size: 1.50rem;
+    color: #01C38D;
+    transition: all .1s ease-in-out;
+}
+
+.login__eye:hover {
+    font-size: 1.80rem;
+}
+
+.login__eye {
+    position: absolute;
+    cursor: pointer;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #01C38D;
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    height: 44px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    transform: scale(1.2);
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+
+@keyframes animated-text {
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.one,
+.two,
+.three,
+.four,
+.six {
+    -webkit-text-stroke: 1px #fff;
+    background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ba4edde6-822d-437a-88c2-f54392d7a56f);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+/*--------------------------------------- /content section -------------------------------------------------*/
