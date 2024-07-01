@@ -117,12 +117,14 @@ label #open {
 }
 
 label #cancel {
+    display: none;
     z-index: 1111;
     right: -195px;
     top: 17px;
     font-size: 35px;
     color: var(--greenTwo);
     transition: all .5s ease;
+    opacity: 0;
 }
 
 #check:checked ~ .sidebar{
@@ -136,6 +138,8 @@ label #cancel {
 }
 
 #check:checked ~ label #cancel{
+    opacity: 1;
+    display: block;
     right: 195px;
 }
 
@@ -155,10 +159,21 @@ label #cancel {
 /*--------------------------------------- /navbar -------------------------------------------------*/
 
 /*--------------------------------------- content -------------------------------------------------*/
-@media only screen and (max-width: 751px) {
-   .links {
-    display: none;
-   }
+
+@media screen and (min-width: 576px) {
+    .login {
+        justify-content: center;
+    }
+
+    .login__form {
+        width: 432px;
+        padding: 4rem 3rem 3.5rem;
+        border-radius: 1.5rem;
+    }
+
+    .login__title {
+        font-size: 2rem;
+    }
 }
 
 input,
@@ -383,20 +398,45 @@ hr {
 }
 /*--------------------------------------- /footer -------------------------------------------------*/
 
-/*--------------------------------------- mobile -------------------------------------------------*/
-@media screen and (min-width: 576px) {
-    .login {
-        justify-content: center;
+/*--------------------------------------- tablet -------------------------------------------------*/
+@media only screen and (min-width: 1024px) {
+    .sidebar {
+        display: none;
     }
 
-    .login__form {
-        width: 432px;
-        padding: 4rem 3rem 3.5rem;
-        border-radius: 1.5rem;
+    #check {
+        display: none;
     }
 
-    .login__title {
-        font-size: 2rem;
+    label #open, label #cancel {
+        display: none;
     }
 }
+/*--------------------------------------- /tablet -------------------------------------------------*/
+
+/*--------------------------------------- mobile -------------------------------------------------*/
+
+
+@media only screen and (max-width: 751px) {
+    body{
+        height: 100%;
+    }
+
+    .links{
+        display: none;
+    }
+
+    .login{
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        margin-top: 100px;
+    }
+
+    .login__form{
+        width: 100%;
+    }
+}
+
+
 /*--------------------------------------- /mobile -------------------------------------------------*/

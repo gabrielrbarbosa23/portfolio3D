@@ -113,12 +113,14 @@ label #open {
 }
 
 label #cancel {
+    display: none;
     z-index: 1111;
     right: -195px;
     top: 17px;
     font-size: 35px;
     color: var(--greenTwo);
     transition: all .5s ease;
+    opacity: 0;
 }
 
 #check:checked ~ .sidebar{
@@ -132,10 +134,13 @@ label #cancel {
 }
 
 #check:checked ~ label #cancel{
+    opacity: 1;
+    display: block;
     right: 195px;
 }
 
 @media only screen and (min-width: 751px) {
+
     .sidebar {
         display: none;
     }
@@ -399,10 +404,39 @@ hr {
 }
 /*--------------------------------------- /footer -------------------------------------------------*/
 
+/*--------------------------------------- tablet -------------------------------------------------*/
+@media only screen and (min-width: 752px) and (max-width: 1024px) {
+    .links {
+        display: none;
+    }
+}
+/*--------------------------------------- /tablet -------------------------------------------------*/
+
+/*--------------------------------------- mobile -------------------------------------------------*/
 /*--------------------------------------- mobile -------------------------------------------------*/
 @media only screen and (max-width: 751px) {
-   .links {
-    display: none;
-   }
+    body {
+        height: 100%;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .column1, .column2 {
+        max-width: 100%;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .about, .about2 {
+        width: 100%;
+    }
 }
+/*--------------------------------------- /mobile -------------------------------------------------*/
+
 /*--------------------------------------- /mobile -------------------------------------------------*/
